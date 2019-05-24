@@ -1,13 +1,16 @@
 package com.example.mrvova96.weatherforecast.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.mrvova96.weatherforecast.BuildConfig;
 import com.example.mrvova96.weatherforecast.R;
@@ -25,7 +28,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    InterfaceAPI interfaceAPI;
     WeatherAdapter adapter;
     CitiesList list = new CitiesList();
 
@@ -33,32 +35,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setToolbar();
         initRecyclerView();
-        adapter = new WeatherAdapter(list.getCities());
-        recyclerView.setAdapter(adapter);
-        WeatherAPI.getClient()
-                .create(InterfaceAPI.class)
-                .getWeatherForOneDay("London", BuildConfig.API_KEY, BuildConfig.UNITS, BuildConfig.LANGUAGE)
-                .enqueue(new Callback<OneDayWeather>() {
-
-                    @Override
-                    public void onResponse(@NonNull Call<OneDayWeather> call, @NonNull Response<OneDayWeather> response) {
-                        Log.e("WEATHER", "onResponse");
-
-                        OneDayWeather data = response.body();
-                        Intent intent = new Intent(getApplicationContext(), WeatherDetailActivity.class);
-                        intent.putExtra("temp", data.getTemp());
-                        intent.putExtra("icon", data.getIconURL());
-                        startActivity(intent);
-                        //cityName.setText(data.getCity() + ", " + data.getTemp());
-                        //Glide.with(MainActivity.this).load(data.getIconURL()).into(icon);
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<OneDayWeather> call, @NonNull Throwable t) {
-                        Log.e("WEATHER", "onFailure");
-                    }
-                });
     }
 
     private void initRecyclerView() {
@@ -66,9 +45,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
+        initAdapter();
+        initClickListener();
     }
 
-    public void onItemClickListener() {
+    private void initAdapter() {
+        adapter = new WeatherAdapter(list.getCities());
+        recyclerView.setAdapter(adapter);
+    }
+
+    public void initClickListener() {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -79,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onLongItemClick(View view, int i) {
-                        // It's not required
+                        Toast.makeText(getApplicationContext(), list.getCities().get(i).getName(), Toast.LENGTH_SHORT).show();
                     }
                 })
         );
@@ -88,26 +74,49 @@ public class MainActivity extends AppCompatActivity {
     private void loadData(String cityName) {
         WeatherAPI.getClient()
                 .create(InterfaceAPI.class)
-                .getWeatherForOneDay(cityName, BuildConfig.API_KEY, BuildConfig.UNITS, BuildConfig.LANGUAGE)
+                .getWeatherForOneDay(cityName, BuildConfig.API_KEY, BuildConfig.UNITS)
                 .enqueue(new Callback<OneDayWeather>() {
 
             @Override
             public void onResponse(@NonNull Call<OneDayWeather> call, @NonNull Response<OneDayWeather> response) {
-                Log.e("WEATHER", "onResponse");
-
                 OneDayWeather data = response.body();
-                Intent intent = new Intent(getApplicationContext(), WeatherDetailActivity.class);
+                Intent intent = new Intent(MainActivity.this, WeatherDetailActivity.class);
+                intent.putExtra("city", data.getCity());
                 intent.putExtra("temp", data.getTemp());
-                intent.putExtra("icon", data.getIconURL());
+                intent.putExtra("pressure", data.getPressure());
+                intent.putExtra("humidity", data.getHumidity());
+                intent.putExtra("description", data.getDescription());
+                intent.putExtra("weatherID", data.getWeatherID());
+                intent.putExtra("windSpeed", data.getWindSpeed());
+                intent.putExtra("country", data.getCountry());
+                intent.putExtra("sunrise", data.getSunrise());
+                intent.putExtra("sunset", data.getSunset());
                 startActivity(intent);
-                //cityName.setText(data.getCity() + ", " + data.getTemp());
-                //Glide.with(MainActivity.this).load(data.getIconURL()).into(icon);
             }
 
             @Override
             public void onFailure(@NonNull Call<OneDayWeather> call, @NonNull Throwable t) {
-                Log.e("WEATHER", "onFailure");
+                Toast.makeText(getApplicationContext(), "Oops, lost connection!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void setToolbar() {
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_main));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+        return true;
+    }
+
+    public void onInfoAction(MenuItem item) {
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void onSettingAction(MenuItem item) {
+        Toast.makeText(this, "To be continued...", Toast.LENGTH_SHORT).show();
     }
 }

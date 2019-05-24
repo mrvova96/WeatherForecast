@@ -6,47 +6,87 @@ import java.util.List;
 
 public class OneDayWeather {
 
-    public OneDayWeather(String city, WeatherTemp temp, List<WeatherInfo> info) {
+    public OneDayWeather(String city, WeatherMain main, List<WeatherInfo> info, Wind wind, OtherDetail detail) {
         this.city = city;
-        this.temp = temp;
+        this.main = main;
         this.info = info;
+        this.wind = wind;
+        this.detail = detail;
     }
 
-    public class WeatherTemp {
+    public class WeatherMain {
         Double temp;
-        Double temp_min;
-        Double temp_max;
+        Double pressure;
+        int humidity;
     }
 
     public class WeatherInfo {
-        String icon;
+        String description;
+        int id;
     }
+
+    public class Wind {
+        Double speed;
+    }
+
+    public class OtherDetail {
+        String country;
+        long sunrise;
+        long sunset;
+    }
+
     @SerializedName("name")
     private String city;
 
     @SerializedName("main")
-    private WeatherTemp temp;
+    private WeatherMain main;
 
     @SerializedName("weather")
     private List<WeatherInfo> info;
+
+    @SerializedName("wind")
+    private Wind wind;
+
+    @SerializedName("sys")
+    private OtherDetail detail;
 
     public String getCity() {
         return city;
     }
 
-    public String getTemp() {
-        return String.valueOf(temp.temp);
+    public int getTemp() {
+        return (int) Math.round(main.temp);
     }
 
-    public String getTempMin() {
-        return String.valueOf(temp.temp_min);
+    public int getPressure() {
+        return (int) Math.round(main.pressure);
     }
 
-    public String getTempMax() {
-        return String.valueOf(temp.temp_max);
+    public int getHumidity() {
+        return main.humidity;
     }
 
-    public String getIconURL() {
-        return "https://openweathermap.org/img/w/" + info.get(0).icon + ".png";
+    public String getDescription() {
+        return info.get(0).description;
+    }
+
+    public int getWeatherID() {
+        return info.get(0).id;
+    }
+
+    public int getWindSpeed() {
+        return (int) Math.round(wind.speed);
+    }
+
+    public String getCountry() {
+        return detail.country;
+    }
+
+    public long getSunrise() {
+        return detail.sunrise;
+    }
+
+    public long getSunset() {
+        return detail.sunset;
     }
 }

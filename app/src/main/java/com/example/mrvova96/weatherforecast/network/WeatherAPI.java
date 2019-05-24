@@ -1,9 +1,9 @@
 package com.example.mrvova96.weatherforecast.network;
 
-        import com.example.mrvova96.weatherforecast.BuildConfig;
+import com.example.mrvova96.weatherforecast.BuildConfig;
 
-        import retrofit2.Retrofit;
-        import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeatherAPI {
 

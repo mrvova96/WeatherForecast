@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.mrvova96.weatherforecast.R;
 import com.example.mrvova96.weatherforecast.model.City;
-import com.example.mrvova96.weatherforecast.ui.MainActivity;
 
 import java.util.List;
 

@@ -18,7 +18,6 @@ android {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\""
             buildConfigField "String", "API_KEY", "\"2e202cdf1fbcd03c0202a82ceae942de\""
-            buildConfigField "String", "LANGUAGE", "\"ru\""
             buildConfigField "String", "UNITS", "\"metric\""
         }
     }

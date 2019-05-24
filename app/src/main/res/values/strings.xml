@@ -1,8 +1,30 @@
 <resources>
-    <string name="app_name">Прогноз погоды</string>
-    <string name="textview">TextView</string>
-    <string name="city_name">Выберите город:</string>
+    <string name="app_name">WeatherForecast</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Strings for weather icons -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+
+    <!-- Strings for textViews -->
+    <string name="location">%1$s, %2$s</string>
+    <string name="temp">%1$d ℃</string>
+    <string name="pressure">Pressure: %1$d hPa"</string>
+    <string name="humidity">Humidity: %1$d %%</string>
+    <string name="wind_speed">Wind speed: %1$d mps</string>
+
+    <string name="version">WeatherForecast v1.0</string>
+    <string name="license">all rights reserved</string>
+    <string name="date">2019</string>
+
+    <!-- Strings for menuItems -->
+    <string name="item_settings">settings</string>
+    <string name="item_info">about</string>
+    <string name="update_data">update data</string>
 </resources>
