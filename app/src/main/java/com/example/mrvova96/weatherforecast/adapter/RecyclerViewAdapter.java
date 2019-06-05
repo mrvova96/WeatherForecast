@@ -13,11 +13,11 @@ import com.example.mrvova96.weatherforecast.model.City;
 
 import java.util.List;
 
-public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.CityViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CityViewHolder> {
 
     private List<City> cities;
 
-    public WeatherAdapter(List<City> cities) {
+    public RecyclerViewAdapter(List<City> cities) {
         this.cities = cities;
     }
 

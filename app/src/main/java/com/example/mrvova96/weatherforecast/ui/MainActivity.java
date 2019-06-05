@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.mrvova96.weatherforecast.BuildConfig;
 import com.example.mrvova96.weatherforecast.R;
-import com.example.mrvova96.weatherforecast.adapter.WeatherAdapter;
+import com.example.mrvova96.weatherforecast.adapter.RecyclerViewAdapter;
 import com.example.mrvova96.weatherforecast.model.CitiesList;
 import com.example.mrvova96.weatherforecast.model.OneDayWeather;
 import com.example.mrvova96.weatherforecast.network.InterfaceAPI;
@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    WeatherAdapter adapter;
+    RecyclerViewAdapter adapter;
     CitiesList list = new CitiesList();
 
     @Override
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        adapter = new WeatherAdapter(list.getCities());
+        adapter = new RecyclerViewAdapter(list.getCities());
         recyclerView.setAdapter(adapter);
     }
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_main));
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_info));
     }
 
     @Override

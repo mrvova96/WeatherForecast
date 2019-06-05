@@ -8,14 +8,7 @@
     android:background="@color/colorBlue"
     tools:context=".ui.WeatherDetailActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_weather"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+    <include layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/weatherIcon"
@@ -27,7 +20,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="center|center_horizontal"
-        android:text="icon"
+        tools:text="icon"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWhite"
         android:textSize="130sp"
@@ -45,7 +38,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="128dp"
         android:gravity="center_vertical"
-        android:text="info"
+        tools:text="info"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
@@ -64,7 +57,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:text="temp"
+        tools:text="temp"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="90sp"
@@ -82,7 +75,7 @@
         android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="location"
+        tools:text="location"
         android:textColor="@color/colorWhite"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +92,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="start|center_vertical"
-        android:text="pressure"
+        tools:text="pressure"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +106,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="start|center_vertical"
-        android:text="humidity"
+        tools:text="humidity"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/pressure_field"
@@ -126,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start|center_vertical"
-        android:text="wind speed"
+        tools:text="wind speed"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/humidity_field"

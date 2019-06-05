@@ -14,6 +14,7 @@ public class CitiesList {
         cities.add(new City("Berlin"));
         cities.add(new City("Deli"));
         cities.add(new City("Gryazovets"));
+        cities.add(new City("Havana"));
         cities.add(new City("Helsinki"));
         cities.add(new City("Kazan"));
         cities.add(new City("Kiev"));

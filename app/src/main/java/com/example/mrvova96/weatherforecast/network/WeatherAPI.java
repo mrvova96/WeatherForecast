@@ -7,8 +7,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeatherAPI {
 
+    private static Retrofit.Builder retrofit = new Retrofit.Builder();
+
     public static Retrofit getClient() {
-        return new Retrofit.Builder()
+        return retrofit
                 .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

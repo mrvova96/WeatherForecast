@@ -26,5 +26,4 @@
     <!-- Strings for menuItems -->
     <string name="item_settings">settings</string>
     <string name="item_info">about</string>
-    <string name="update_data">update data</string>
 </resources>

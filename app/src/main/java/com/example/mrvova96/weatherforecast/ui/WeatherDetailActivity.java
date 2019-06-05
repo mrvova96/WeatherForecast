@@ -65,37 +65,37 @@ public class WeatherDetailActivity extends AppCompatActivity {
         setWeatherIcon(weatherID, sunrise, sunset);
     }
 
-    private void setWeatherIcon(int weatherID, long sunrise, long sunset){
+    private void setWeatherIcon(int weatherID, long sunrise, long sunset) {
         Typeface weatherFont = Typeface.createFromAsset(this.getAssets(), "fonts/weather.ttf");
         TextView weatherIcon = findViewById(R.id.weatherIcon);
         weatherIcon.setTypeface(weatherFont);
         String icon = "";
         int id = weatherID / 100;
-        if(weatherID == 800){
+        if (weatherID == 800) {
             long currentTime = new Date().getTime();
-            if(currentTime >= sunrise * 1000 && currentTime < sunset * 1000) {
+            if (currentTime >= sunrise * 1000 && currentTime < sunset * 1000) {
                 icon = this.getString(R.string.weather_sunny);
             } else {
                 icon = this.getString(R.string.weather_clear_night);
             }
         } else {
-            switch(id) {
-                case 2 :
+            switch (id) {
+                case 2:
                     icon = this.getString(R.string.weather_thunder);
                     break;
-                case 3 :
+                case 3:
                     icon = this.getString(R.string.weather_drizzle);
                     break;
-                case 7 :
+                case 7:
                     icon = this.getString(R.string.weather_foggy);
                     break;
-                case 8 :
+                case 8:
                     icon = this.getString(R.string.weather_cloudy);
                     break;
-                case 6 :
+                case 6:
                     icon = this.getString(R.string.weather_snowy);
                     break;
-                case 5 :
+                case 5:
                     icon = this.getString(R.string.weather_rainy);
                     break;
             }
@@ -104,7 +104,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_weather));
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_info));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
