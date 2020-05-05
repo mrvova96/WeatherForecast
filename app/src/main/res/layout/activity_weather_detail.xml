@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constrainLayout"
@@ -27,25 +27,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/description_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="128dp"
-        android:gravity="center_vertical"
-        tools:text="info"
-        android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/temp_field"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/temp_field"
@@ -88,16 +69,48 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="start|center_vertical"
-        tools:text="pressure"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_field" />
+        app:layout_constraintTop_toBottomOf="@+id/description_field"
+        tools:text="pressure" />
+
+    <TextView
+        android:id="@+id/windSpeed_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/humidity_field"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/humidity_field"
+        app:layout_constraintTop_toBottomOf="@+id/humidity_field"
+        tools:text="wind speed" />
+
+    <TextView
+        android:id="@+id/description_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="116dp"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/temp_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="info" />
 
     <TextView
         android:id="@+id/humidity_field"
@@ -106,24 +119,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="start|center_vertical"
-        tools:text="humidity"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/pressure_field"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/pressure_field"
-        app:layout_constraintTop_toBottomOf="@+id/pressure_field" />
+        app:layout_constraintTop_toBottomOf="@+id/pressure_field"
+        tools:text="humidity" />
 
-    <TextView
-        android:id="@+id/windSpeed_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        tools:text="wind speed"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/humidity_field"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/humidity_field"
-        app:layout_constraintTop_toBottomOf="@+id/humidity_field" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

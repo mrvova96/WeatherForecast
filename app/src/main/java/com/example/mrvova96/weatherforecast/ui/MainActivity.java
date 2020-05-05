@@ -2,15 +2,15 @@ package com.example.mrvova96.weatherforecast.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mrvova96.weatherforecast.BuildConfig;
 import com.example.mrvova96.weatherforecast.R;
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_info));
+        setSupportActionBar(findViewById(R.id.toolbar_info));
     }
 
     @Override
@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSettingAction(MenuItem item) {
-        Toast.makeText(this, "To be continued...", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }

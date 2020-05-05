@@ -33,6 +33,7 @@ public class CitiesList {
         cities.add(new City("Saint Petersburg"));
         cities.add(new City("Sevastopol"));
         cities.add(new City("Sochi"));
+        cities.add(new City("Sydney"));
         cities.add(new City("Tokio"));
         cities.add(new City("Tutaev"));
         cities.add(new City("Vologda"));

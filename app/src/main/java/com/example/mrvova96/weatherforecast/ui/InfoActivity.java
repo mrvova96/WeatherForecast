@@ -2,13 +2,14 @@ package com.example.mrvova96.weatherforecast.ui;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mrvova96.weatherforecast.R;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,7 +64,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_info));
+        setSupportActionBar(findViewById(R.id.toolbar_info));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

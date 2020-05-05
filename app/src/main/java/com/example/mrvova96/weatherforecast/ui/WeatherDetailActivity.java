@@ -3,12 +3,12 @@ package com.example.mrvova96.weatherforecast.ui;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mrvova96.weatherforecast.R;
 
@@ -68,6 +68,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     private void setWeatherIcon(int weatherID, long sunrise, long sunset) {
         Typeface weatherFont = Typeface.createFromAsset(this.getAssets(), "fonts/weather.ttf");
         TextView weatherIcon = findViewById(R.id.weatherIcon);
+        weatherIcon.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         weatherIcon.setTypeface(weatherFont);
         String icon = "";
         int id = weatherID / 100;
@@ -104,7 +105,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar_info));
+        setSupportActionBar(findViewById(R.id.toolbar_info));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -127,6 +128,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     }
 
     public void onSettingAction(MenuItem item) {
-        Toast.makeText(this, "To be continued...", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }
