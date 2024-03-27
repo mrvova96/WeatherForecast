@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadData(String cityName) {
         WeatherAPI.getClient()
                 .create(InterfaceAPI.class)
-                .getWeatherForOneDay(cityName, BuildConfig.API_KEY, BuildConfig.UNITS)
+                .getWeatherForOneDay(cityName, BuildConfig.API_KEY, BuildConfig.UNITS, BuildConfig.LANG)
                 .enqueue(new Callback<OneDayWeather>() {
 
             @Override
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar(findViewById(R.id.toolbar_info));
+        setSupportActionBar(findViewById(R.id.toolbar));
     }
 
     @Override

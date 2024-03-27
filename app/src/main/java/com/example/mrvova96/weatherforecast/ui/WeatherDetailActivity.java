@@ -105,7 +105,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        setSupportActionBar(findViewById(R.id.toolbar_info));
+        setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

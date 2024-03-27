@@ -12,6 +12,7 @@ public interface InterfaceAPI {
     Call<OneDayWeather> getWeatherForOneDay(
             @Query("q") String city,
             @Query("APPID") String appID,
-            @Query("units") String units
+            @Query("units") String units,
+            @Query("lang") String lang
     );
 }
